@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "974997737143",
+    "firebase_url": "https://medessentials-2763e.firebaseio.com",
+    "project_id": "medessentials-2763e",
+    "storage_bucket": "medessentials-2763e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:974997737143:android:bb7e3e5a9a4a404ee28732",
+        "android_client_info": {
+          "package_name": "com.example.medessentials"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "974997737143-neioa8f58csho6gagirsvkr793utmkpe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBYiMm0UYN9K2N3yk5YZ8RdvF60O4u2ZeI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "974997737143-neioa8f58csho6gagirsvkr793utmkpe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
