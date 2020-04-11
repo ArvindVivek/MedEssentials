@@ -5,6 +5,58 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background = "#ffffff"
         tools:context=".Authentication">
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:id="@+id/login_title"
+              android:text="Login"
+              android:textSize="20dp"
+              android:textStyle = "bold"
+              app:layout_constraintLeft_toLeftOf="parent"
+              app:layout_constraintTop_toTopOf="parent"
+              android:layout_marginLeft="25dp"
+              android:layout_marginTop = "35dp"
+              app:fontFamily="@font/abel"></TextView>
+
+    <ImageView android:layout_width="200dp"
+               android:layout_height="200dp"
+               android:id = "@+id/logo_img"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintRight_toRightOf="parent"
+               android:layout_marginTop="70dp"
+               android:scaleType="fitXY"
+               android:src = "@drawable/logo"
+    ></ImageView>
+
+    <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/Username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            app:layout_constraintTop_toBottomOf="@id/logo_img"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+        />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
