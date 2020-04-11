@@ -31,32 +31,52 @@
                android:src = "@drawable/logo"
     ></ImageView>
 
-    <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/Username"
-            android:layout_width="match_parent"
+    <EditText android:layout_width="300dp"
+              android:layout_height="40dp"
+              android:background="@drawable/text_field"
+              android:id = "@+id/Username"
+              android:textColorHint="#ffffff"
+              app:layout_constraintTop_toBottomOf="@id/logo_img"
+              app:layout_constraintLeft_toLeftOf="parent"
+              app:layout_constraintRight_toRightOf="parent"
+              android:hint="Username"
+    ></EditText>
+
+
+    <EditText android:layout_width="300dp"
+              android:layout_height="40dp"
+              android:background="@drawable/text_field"
+              android:id = "@+id/Password"
+              app:layout_constraintTop_toBottomOf="@id/Username"
+              app:layout_constraintLeft_toLeftOf="parent"
+              app:layout_constraintRight_toRightOf="parent"
+              android:layout_marginTop = "10dp"
+              android:hint="Password"
+              android:textColorHint="#ffffff"
+              android:inputType="textPassword"
+    ></EditText>
+
+    <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Username"
-            app:layout_constraintTop_toBottomOf="@id/logo_img"
+            android:text = "Sign Up"
+            android:id = "@+id/signup"
+            android:background = "@drawable/button_round"
+            android:textColor="#ffffff"
+            android:layout_marginTop = "20dp"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Password"
+            app:layout_constraintRight_toLeftOf="@id/login"
+    ></Button>
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "Login"
+            android:id = "@+id/login"
+            android:background = "@drawable/button_round"
+            android:textColor="#ffffff"
+            android:layout_marginTop = "20dp"
+            app:layout_constraintLeft_toRightOf="@+id/signup"
+            app:layout_constraintTop_toBottomOf="@id/Password"
             app:layout_constraintRight_toRightOf="parent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-
-        <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-        />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-
-
-
-
-
-
-
-
-
-
+    ></Button>
 </androidx.constraintlayout.widget.ConstraintLayout>
