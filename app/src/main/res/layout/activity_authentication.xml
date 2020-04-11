@@ -39,6 +39,7 @@
               app:layout_constraintTop_toBottomOf="@id/logo_img"
               app:layout_constraintLeft_toLeftOf="parent"
               app:layout_constraintRight_toRightOf="parent"
+              android:drawableLeft="@drawable/user"
               android:hint="Username"
     ></EditText>
 
@@ -47,6 +48,7 @@
               android:layout_height="40dp"
               android:background="@drawable/text_field"
               android:id = "@+id/Password"
+              android:drawableLeft="@drawable/password"
               app:layout_constraintTop_toBottomOf="@id/Username"
               app:layout_constraintLeft_toLeftOf="parent"
               app:layout_constraintRight_toRightOf="parent"

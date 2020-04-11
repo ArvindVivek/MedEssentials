@@ -4,6 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+                android:text = "Signup"
+                android:fontFamily="@font/abel"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft = "20dp"/>
+
     <EditText
         android:id="@+id/firstname_textbox"
         android:layout_width="match_parent"
@@ -14,7 +23,9 @@
         android:layout_marginBottom="8dp"
         android:hint="@string/first_name"
         android:inputType="text"
-        android:importantForAutofill="no" />
+        android:importantForAutofill="no"
+        android:textColorHint="#ffffff"
+        android:background = "@drawable/text_field"/>
 
     <EditText
         android:id="@+id/lastname_textbox"
@@ -25,8 +36,10 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:hint="@string/last_name"
+        android:textColorHint="#ffffff"
         android:inputType="text"
-        android:importantForAutofill="no" />
+        android:importantForAutofill="no"
+        android:background = "@drawable/text_field"/>
 
     <EditText
         android:id="@+id/email_textbox"
@@ -38,7 +51,9 @@
         android:layout_marginBottom="8dp"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:importantForAutofill="no" />
+        android:importantForAutofill="no"
+        android:textColorHint="#ffffff"
+        android:background = "@drawable/text_field"/>
 
     <Spinner
         android:id="@+id/persontype_dropdown"
@@ -48,7 +63,12 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
-        android:entries="@array/PersonTypes"/>
+        />
 
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/button_round"
+            android:text = "Enter"
+            android:textColor = "#ffffff"/>
 
 </LinearLayout>
