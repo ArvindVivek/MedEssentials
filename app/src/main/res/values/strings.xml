@@ -3,10 +3,6 @@
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
     <string name="email">Email</string>
-
-    <string-array name="PersonTypes">
-        <item>Individual Donator</item>
-        <item>Manufacturer</item>
-        <item>Medical Professional</item>
-    </string-array>
+    <string name="signup">Signup</string>
+    <string name="password">Password</string>
 </resources>

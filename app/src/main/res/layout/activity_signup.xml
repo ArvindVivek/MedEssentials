@@ -4,14 +4,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-                android:text = "Signup"
-                android:fontFamily="@font/abel"
-                android:textStyle="bold"
-                android:textSize="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft = "20dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Signup"
+        android:fontFamily="@font/abel"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"/>
 
     <EditText
         android:id="@+id/firstname_textbox"
@@ -25,7 +26,7 @@
         android:inputType="text"
         android:importantForAutofill="no"
         android:textColorHint="#ffffff"
-        android:background = "@drawable/text_field"/>
+        android:background="@drawable/text_field"/>
 
     <EditText
         android:id="@+id/lastname_textbox"
@@ -39,7 +40,7 @@
         android:textColorHint="#ffffff"
         android:inputType="text"
         android:importantForAutofill="no"
-        android:background = "@drawable/text_field"/>
+        android:background="@drawable/text_field"/>
 
     <EditText
         android:id="@+id/email_textbox"
@@ -53,7 +54,21 @@
         android:inputType="textEmailAddress"
         android:importantForAutofill="no"
         android:textColorHint="#ffffff"
-        android:background = "@drawable/text_field"/>
+        android:background="@drawable/text_field"/>
+
+    <EditText
+        android:id="@+id/password_textbox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:importantForAutofill="no"
+        android:textColorHint="#ffffff"
+        android:background="@drawable/text_field"/>
 
     <Spinner
         android:id="@+id/persontype_dropdown"
@@ -62,13 +77,17 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="8dp"
-        />
+        android:layout_marginBottom="8dp"/>
 
-    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:background="@drawable/button_round"
-            android:text = "Enter"
-            android:textColor = "#ffffff"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_round"
+        android:text = "@string/signup"
+        android:textColor="#ffffff"/>
 
 </LinearLayout>
