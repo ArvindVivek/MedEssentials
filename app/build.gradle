@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.medessentials"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -32,5 +32,7 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.1.0'
     // https://firebase.google.com/docs/android/setup#available-libraries
+    implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
+
 
 }
