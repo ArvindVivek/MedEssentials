@@ -39,6 +39,7 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
 
     private MapView mMapView;
     private Button logout;
+    //private Button request;
     private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
 
 
@@ -60,6 +61,16 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
                 logout();
             }
         });
+
+        /*request = findViewById(R.id.request);
+        request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), Request.class);
+                startActivity(intent);
+            }
+        });*/
+
     }
 
     public void done(View view) {
