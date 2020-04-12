@@ -79,11 +79,24 @@ public class Signup extends AppCompatActivity {
 
                             String name = scrub(email.getText().toString());
                             String occupation = s.getSelectedItem().toString();
-                            database.child("users").child(name).child("Preferences").setValue(occupation);
 
-                            Intent intent = new Intent(getApplicationContext(), Offer.class);
-                            intent.putExtra("Username", scrub(email.getText().toString()));
-                            startActivity(intent);
+                            // database.child("users").child(name).child("Preferences").setValue(occupation);
+                            String r = Integer.toString((int) (Math.random() * 10000));
+
+                            database.child("users").child(name).setValue(new User(name, occupation));
+
+                            if(occupation.equals("Medical Professional (Recipient)")) {
+                                Intent intent = new Intent(getApplicationContext(), MapsHome.class);
+                                intent.putExtra("Username", scrub(email.getText().toString()));
+                                startActivity(intent);
+                            }
+                            else {
+                                Intent intent = new Intent(getApplicationContext(), Offer.class);
+                                intent.putExtra("Username", scrub(email.getText().toString()));
+                                startActivity(intent);
+                            }
+
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());

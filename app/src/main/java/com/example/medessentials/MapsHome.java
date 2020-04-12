@@ -1,14 +1,17 @@
 package com.example.medessentials;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 
+import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
@@ -18,6 +21,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseError;
 import com.google.firebase.database.DataSnapshot;
@@ -33,7 +38,7 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
     DatabaseReference myRef;
 
     private MapView mMapView;
-
+    private Button logout;
     private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
 
 
@@ -47,6 +52,14 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
         initGoogleMap(savedInstanceState);
         myRef = FirebaseDatabase.getInstance().getReference().child("Offer");
         myRef.keepSynced(true);
+
+        logout = findViewById(R.id.map_logout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logout();
+            }
+        });
     }
 
     public void done(View view) {
@@ -167,5 +180,16 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
     @Override
     public boolean onMarkerClick(Marker marker) {
         return false;
+    }
+
+    private void logout() {
+        AuthUI.getInstance()
+                .signOut(this)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Intent intent = new Intent(getApplicationContext(), Authentication.class);
+                        startActivity(intent);
+                    }
+                });
     }
 }

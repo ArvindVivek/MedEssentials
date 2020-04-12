@@ -6,14 +6,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Map Screen" />
+
+
+    <Button android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:text = "Logout"
+    android:background="@drawable/button_round"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft = "10dp"
+            android:id = "@+id/map_logout"
+            android:textColor="#ffffff"
+    ></Button>
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
 </LinearLayout>

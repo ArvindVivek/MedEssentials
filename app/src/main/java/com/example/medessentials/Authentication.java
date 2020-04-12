@@ -19,8 +19,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.*;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class Authentication extends AppCompatActivity {
@@ -34,6 +36,13 @@ public class Authentication extends AppCompatActivity {
     EditText password;
 
     private FirebaseAuth mAuth;
+    private DatabaseReference myRef;
+
+    private HashMap<String, String> userData;
+    String userName;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +50,7 @@ public class Authentication extends AppCompatActivity {
         setContentView(R.layout.activity_authentication);
 
         mAuth = FirebaseAuth.getInstance();
+        myRef = FirebaseDatabase.getInstance().getReference("users");
 
         email = findViewById(R.id.Username);
         password = findViewById(R.id.Password);
@@ -53,6 +63,8 @@ public class Authentication extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        userData = new HashMap<>();
 
         login = findViewById(R.id.login);
         login.setOnClickListener(new View.OnClickListener() {
@@ -83,9 +95,22 @@ public class Authentication extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(getApplicationContext(), Offer.class);
-                            intent.putExtra("Username", scrub(email.getText().toString()));
-                            startActivity(intent);
+
+                            readData();
+
+                            userName = scrub(email.getText().toString());
+
+                            /*if(occupation.equals("Medical Professional (Recipient)")) {
+                                Intent intent = new Intent(getApplicationContext(), MapsHome.class);
+                                intent.putExtra("Username", scrub(email.getText().toString()));
+                                startActivity(intent);
+                            }
+                            else {
+                                Intent intent = new Intent(getApplicationContext(), Offer.class);
+                                intent.putExtra("Username", scrub(email.getText().toString()));
+                                startActivity(intent);
+                            }*/
+
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -102,6 +127,42 @@ public class Authentication extends AppCompatActivity {
     private String scrub(String str) {
         int loc = str.indexOf(".");
         return str.substring(0, loc) + str.substring(loc + 1);
+    }
+
+    public void readData() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for(DataSnapshot datasnapShot1: dataSnapshot.getChildren()) {
+                    HashMap<String, String> user = (HashMap)datasnapShot1.getValue();
+
+                    String name = user.get("name");
+                    if(name.equals(userName)) {
+                        String occupation = user.get("preference");
+                        Log.d(TAG, "User: " + user + " Preference:" + occupation);
+                        if(occupation.equals("Medical Professional (Recipient)")) {
+                            Intent intent = new Intent(getApplicationContext(), MapsHome.class);
+                            intent.putExtra("Username", scrub(email.getText().toString()));
+                            startActivity(intent);
+                        }
+                        else {
+                            Intent intent = new Intent(getApplicationContext(), Offer.class);
+                            intent.putExtra("Username", scrub(email.getText().toString()));
+                            startActivity(intent);
+                        }
+                    }
+
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.d(TAG, "Data Access failed: " + databaseError.getMessage());
+
+            }
+        });
     }
 
 }
