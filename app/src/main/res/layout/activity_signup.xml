@@ -26,7 +26,9 @@
         android:inputType="text"
         android:importantForAutofill="no"
         android:textColorHint="#ffffff"
-        android:background="@drawable/text_field"/>
+        android:background="@drawable/text_field"
+        android:paddingHorizontal="10dp"
+        android:textColor="#ffffff"/>
 
     <EditText
         android:id="@+id/lastname_textbox"
@@ -40,7 +42,9 @@
         android:textColorHint="#ffffff"
         android:inputType="text"
         android:importantForAutofill="no"
-        android:background="@drawable/text_field"/>
+        android:background="@drawable/text_field"
+        android:paddingHorizontal="10dp"
+        android:textColor="#ffffff"/>
 
     <EditText
         android:id="@+id/email_textbox"
@@ -54,7 +58,9 @@
         android:inputType="textEmailAddress"
         android:importantForAutofill="no"
         android:textColorHint="#ffffff"
-        android:background="@drawable/text_field"/>
+        android:background="@drawable/text_field"
+        android:paddingHorizontal="10dp"
+        android:textColor="#ffffff"/>
 
     <EditText
         android:id="@+id/password_textbox"
@@ -68,7 +74,9 @@
         android:inputType="textPassword"
         android:importantForAutofill="no"
         android:textColorHint="#ffffff"
-        android:background="@drawable/text_field"/>
+        android:background="@drawable/text_field"
+        android:paddingHorizontal="10dp"
+        android:textColor="#ffffff"/>
 
     <Spinner
         android:id="@+id/persontype_dropdown"
