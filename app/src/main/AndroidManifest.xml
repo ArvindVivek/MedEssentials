@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.medessentials">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -11,6 +15,8 @@
             android:theme="@style/AppTheme">
         <activity android:name=".Authentication">
         </activity>
+        <activity android:name=".MapsHome">
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -18,6 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCJ0fCuay9ys1To0F-bzxXOk6v3DZOLGV8" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+             />
     </application>
 
 </manifest>
