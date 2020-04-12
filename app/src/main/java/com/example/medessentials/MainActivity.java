@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent authIntent = new Intent(MainActivity.this, MapsHome.class);
+                Intent authIntent = new Intent(MainActivity.this, Authentication.class);
                 startActivity(authIntent);
                 finish();
             }

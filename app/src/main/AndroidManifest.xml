@@ -18,6 +18,7 @@
         <activity android:name=".Authentication">
         </activity>
         <activity android:name=".MapsHome">
+        </activity>
         <activity android:name=".Signup">
         </activity>
         <activity android:name=".Offer">
