@@ -90,7 +90,9 @@ public class Offer extends AppCompatActivity {
         List<offerData> data = new ArrayList<>();
         data.add(offer);
 
-        database.child("Offer").setValue(data);
+        String r = Integer.toString((int) (Math.random() * 10000));
+
+        database.child("Offer").child(r).setValue(data);
         //database.child("users").child(user).child("Offer").setValue(data);
     }
 }
