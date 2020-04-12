@@ -59,19 +59,6 @@ public class Authentication extends AppCompatActivity {
                 signIn();
             }
         });
-        /*login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                handleLoginRegister(view);
-            }
-        });
-
-        if(FirebaseAuth.getInstance().getCurrentUser() != null) {
-            Intent intent = new Intent(getApplicationContext(), Offer.class);
-            startActivity(intent);
-        }*/
-
-
     }
 
     @Override

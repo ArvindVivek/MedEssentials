@@ -6,89 +6,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <ScrollView android:layout_width="match_parent" android:layout_height="400dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-    >
-        <EditText
-                android:id="@+id/productname_textbox_off"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="48dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:gravity="top|left"
-                android:padding="10dp"
-                android:hint="Product Name/Type"
-                android:inputType="text"
-                android:importantForAutofill="no"
-                android:textColorHint="#ffffff"
-                android:background="@drawable/text_field"
-                android:textColor="#ffffff"
-                app:layout_constraintTop_toBottomOf="@id/title_off"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
-
-        <EditText
-                android:id="@+id/quantity_textbox_off"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:gravity="top|left"
-                android:padding="10dp"
-                android:hint="Quantity"
-                android:textColorHint="#ffffff"
-                android:inputType="text"
-                android:importantForAutofill="no"
-                android:background="@drawable/text_field"
-                android:textColor="#ffffff"
-                app:layout_constraintTop_toBottomOf="@id/productname_textbox_off"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
-
-        <EditText
-                android:id="@+id/details_textbox_off"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:gravity="top|left"
-                android:padding="10dp"
-                android:hint="Extra Details"
-                android:inputType="text"
-                android:importantForAutofill="no"
-                android:textColorHint="#ffffff"
-                android:background="@drawable/text_field"
-                android:textColor="#ffffff"
-                app:layout_constraintTop_toBottomOf="@id/quantity_textbox_off"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
-
-        <Button
-                android:id="@+id/offer"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/button_round"
-                android:text = "Create Offer"
-                android:textColor="#ffffff"
-                app:layout_constraintTop_toBottomOf="@id/details_textbox_off"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-        />
-    </ScrollView>
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -114,6 +31,158 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
+
+
+    <ScrollView android:layout_width="match_parent" android:layout_height="500dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+    >
+
+        <LinearLayout android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+            <EditText
+                    android:id="@+id/company_textbox_off"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="48dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="top|left"
+                    android:padding="10dp"
+                    android:hint="Company Name"
+                    android:inputType="text"
+                    android:importantForAutofill="no"
+                    android:textColorHint="#ffffff"
+                    android:background="@drawable/text_field"
+                    android:textColor="#ffffff"
+            />
+
+
+            <EditText
+                    android:id="@+id/productname_textbox_off"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="top|left"
+                    android:padding="10dp"
+                    android:hint="Product Name/Type"
+                    android:inputType="text"
+                    android:importantForAutofill="no"
+                    android:textColorHint="#ffffff"
+                    android:background="@drawable/text_field"
+                    android:textColor="#ffffff"
+                   />
+
+            <EditText
+                    android:id="@+id/quantity_textbox_off"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="top|left"
+                    android:padding="10dp"
+                    android:hint="Quantity"
+                    android:textColorHint="#ffffff"
+                    android:inputType="text"
+                    android:importantForAutofill="no"
+                    android:background="@drawable/text_field"
+                    android:textColor="#ffffff"
+            />
+
+            <EditText
+                    android:id="@+id/details_textbox_off"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="top|left"
+                    android:padding="10dp"
+                    android:hint="Description"
+                    android:inputType="text"
+                    android:importantForAutofill="no"
+                    android:textColorHint="#ffffff"
+                    android:background="@drawable/text_field"
+                    android:textColor="#ffffff"
+            />
+
+            <EditText
+                    android:id="@+id/email_textbox_off"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="top|left"
+                    android:padding="10dp"
+                    android:hint="Email"
+                    android:inputType="text"
+                    android:importantForAutofill="no"
+                    android:textColorHint="#ffffff"
+                    android:background="@drawable/text_field"
+                    android:textColor="#ffffff"
+            />
+
+            <EditText
+                    android:id="@+id/longitude_textbox_off"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="top|left"
+                    android:padding="10dp"
+                    android:hint="Longitude"
+                    android:inputType="text"
+                    android:importantForAutofill="no"
+                    android:textColorHint="#ffffff"
+                    android:background="@drawable/text_field"
+                    android:textColor="#ffffff"
+            />
+
+            <EditText
+                    android:id="@+id/latitude_textbox_off"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:gravity="top|left"
+                    android:padding="10dp"
+                    android:hint="Latitude"
+                    android:inputType="text"
+                    android:importantForAutofill="no"
+                    android:textColorHint="#ffffff"
+                    android:background="@drawable/text_field"
+                    android:textColor="#ffffff"
+            />
+
+            <Button
+                    android:id="@+id/offer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/button_round"
+                    android:text = "Create Offer"
+                    android:textColor="#ffffff"
+
+            />
+        </LinearLayout>
+
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

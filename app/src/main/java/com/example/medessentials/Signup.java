@@ -82,6 +82,7 @@ public class Signup extends AppCompatActivity {
                             database.child("users").child(name).child("Preferences").setValue(occupation);
 
                             Intent intent = new Intent(getApplicationContext(), Offer.class);
+                            intent.putExtra("Username", scrub(email.getText().toString()));
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
