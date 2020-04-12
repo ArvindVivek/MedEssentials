@@ -41,6 +41,7 @@
               app:layout_constraintRight_toRightOf="parent"
               android:drawableLeft="@drawable/user"
               android:hint="Username"
+              android:textColor="#ffffff"
     ></EditText>
 
 
@@ -56,6 +57,7 @@
               android:hint="Password"
               android:textColorHint="#ffffff"
               android:inputType="textPassword"
+              android:textColor="#ffffff"
     ></EditText>
 
     <Button android:layout_width="wrap_content"
