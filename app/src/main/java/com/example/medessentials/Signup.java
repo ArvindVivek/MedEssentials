@@ -77,9 +77,7 @@ public class Signup extends AppCompatActivity {
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
 
-                            String name = firstName.getText().toString() + " " + lastName.getText().toString();
-                            database.child("users").setValue(name);
-
+                            String name = scrub(email.getText().toString());
                             String occupation = s.getSelectedItem().toString();
                             database.child("users").child(name).child("Preferences").setValue(occupation);
 
@@ -95,5 +93,10 @@ public class Signup extends AppCompatActivity {
                     }
                 });
             //Log.d(TAG, email.getText().toString());
+    }
+
+    private String scrub(String str) {
+        int loc = str.indexOf(".");
+        return str.substring(0, loc) + str.substring(loc + 1);
     }
 }

@@ -95,6 +95,7 @@ public class Authentication extends AppCompatActivity {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(getApplicationContext(), Offer.class);
+                            intent.putExtra("Username", scrub(email.getText().toString()));
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -107,6 +108,11 @@ public class Authentication extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+
+    private String scrub(String str) {
+        int loc = str.indexOf(".");
+        return str.substring(0, loc) + str.substring(loc + 1);
     }
 
 }
