@@ -5,14 +5,15 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/title_req"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text = "Request"
         android:fontFamily="@font/abel"
         android:textStyle="bold"
         android:textSize="36dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"/>
 
     <EditText
         android:id="@+id/productname_textbox_req"

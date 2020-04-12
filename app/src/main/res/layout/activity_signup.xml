@@ -11,8 +11,8 @@
         android:fontFamily="@font/abel"
         android:textStyle="bold"
         android:textSize="36dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="20dp"/>
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"/>
 
     <EditText
         android:id="@+id/firstname_textbox"
@@ -22,6 +22,8 @@
         android:layout_marginTop="48dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
+        android:gravity="top|left"
+        android:padding="10dp"
         android:hint="@string/first_name"
         android:inputType="text"
         android:importantForAutofill="no"
@@ -38,6 +40,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
+        android:gravity="top|left"
+        android:padding="10dp"
         android:hint="@string/last_name"
         android:textColorHint="#ffffff"
         android:inputType="text"
@@ -54,6 +58,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
+        android:gravity="top|left"
+        android:padding="10dp"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:importantForAutofill="no"
@@ -70,6 +76,8 @@
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
+        android:gravity="top|left"
+        android:padding="10dp"
         android:hint="@string/password"
         android:inputType="textPassword"
         android:importantForAutofill="no"
@@ -85,7 +93,9 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="8dp"/>
+        android:layout_marginBottom="8dp"
+        android:gravity="top|left"
+        android:padding="10dp"/>
 
     <Button
         android:layout_width="match_parent"
@@ -95,8 +105,9 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_round"
-        android:text = "@string/signup"
+        android:text="@string/signup"
         android:textColor="#ffffff"
-        android:id = "@+id/fillout_signup"/>
+        android:id="@+id/fillout_signup"
+        />
 
 </LinearLayout>
