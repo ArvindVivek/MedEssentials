@@ -29,13 +29,15 @@
         app:layout_constraintLeft_toLeftOf="parent"/>
 
     <EditText
-        android:id="@+id/productname_textbox"
+        android:id="@+id/productname_textbox_off"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="48dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
+        android:gravity="top|left"
+        android:padding="10dp"
         android:hint="Product Name/Type"
         android:inputType="text"
         android:importantForAutofill="no"
@@ -48,13 +50,15 @@
         app:layout_constraintRight_toRightOf="parent"/>
 
     <EditText
-        android:id="@+id/quantity_textbox"
+        android:id="@+id/quantity_textbox_off"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
+        android:gravity="top|left"
+        android:padding="10dp"
         android:hint="Quantity"
         android:textColorHint="#ffffff"
         android:inputType="text"
@@ -67,13 +71,15 @@
         app:layout_constraintRight_toRightOf="parent"/>
 
     <EditText
-        android:id="@+id/details_textbox"
+        android:id="@+id/details_textbox_off"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
+        android:gravity="top|left"
+        android:padding="10dp"
         android:hint="Extra Details"
         android:inputType="text"
         android:importantForAutofill="no"
@@ -86,6 +92,7 @@
         app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
+        android:id="@+id/create_off_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"

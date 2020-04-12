@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text = "Request"
+        android:fontFamily="@font/abel"
+        android:textStyle="bold"
+        android:textSize="36dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"/>
+
+    <EditText
+        android:id="@+id/productname_textbox_req"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="top|left"
+        android:padding="10dp"
+        android:hint="Product Name/Type"
+        android:inputType="text"
+        android:importantForAutofill="no"
+        android:textColorHint="#ffffff"
+        android:background="@drawable/text_field"/>
+
+    <EditText
+        android:id="@+id/quantity_textbox_req"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="top|left"
+        android:padding="10dp"
+        android:hint="Quantity"
+        android:textColorHint="#ffffff"
+        android:inputType="text"
+        android:importantForAutofill="no"
+        android:background="@drawable/text_field"/>
+
+    <EditText
+        android:id="@+id/details_textbox_req"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="top|left"
+        android:padding="10dp"
+        android:hint="Extra Details"
+        android:inputType="text"
+        android:importantForAutofill="no"
+        android:textColorHint="#ffffff"
+        android:background="@drawable/text_field"/>
+
+    <Button
+        android:id="@+id/create_req_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/button_round"
+        android:text = "Create Request"
+        android:textColor="#ffffff"/>
+
+</LinearLayout>
