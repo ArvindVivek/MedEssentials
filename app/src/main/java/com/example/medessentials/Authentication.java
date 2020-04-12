@@ -22,6 +22,7 @@ public class Authentication extends AppCompatActivity {
     public static final String TAG = "Authentication";
     int AUTHUI_REQUEST_CODE = 10001;
     Button signUp;
+    Button login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +38,16 @@ public class Authentication extends AppCompatActivity {
             }
         });
 
+        login = findViewById(R.id.login);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleLoginRegister(view);
+            }
+        });
+
         if(FirebaseAuth.getInstance().getCurrentUser() != null) {
-            Intent intent = new Intent(getApplicationContext(), Placeholder.class);
+            Intent intent = new Intent(getApplicationContext(), Offer.class);
             startActivity(intent);
         }
 
@@ -71,7 +80,7 @@ public class Authentication extends AppCompatActivity {
                     Toast.makeText(this, "Welcome back again", Toast.LENGTH_SHORT).show();
                 }
 
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, Offer.class);
                 startActivity(intent);
                 this.finish();
             }
