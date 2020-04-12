@@ -12,6 +12,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Signup extends AppCompatActivity {
 
@@ -21,7 +23,10 @@ public class Signup extends AppCompatActivity {
     EditText email;
     EditText password;
 
+    Spinner s;
+
     private FirebaseAuth mAuth;
+    private DatabaseReference database;
 
     private static final String TAG = "Signup";
 
@@ -33,7 +38,7 @@ public class Signup extends AppCompatActivity {
         String[] arraySpinner = new String[] {
                 "Individual Donor", "Manufacturer Donor", "Medical Professional (Recipient)"
         };
-        Spinner s = (Spinner) findViewById(R.id.persontype_dropdown);
+        s = (Spinner) findViewById(R.id.persontype_dropdown);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, arraySpinner);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -46,7 +51,7 @@ public class Signup extends AppCompatActivity {
         password = findViewById(R.id.password_textbox);
 
         mAuth = FirebaseAuth.getInstance();
-
+        database = FirebaseDatabase.getInstance().getReference();
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -71,6 +76,13 @@ public class Signup extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+
+                            String name = firstName.getText().toString() + " " + lastName.getText().toString();
+                            database.child("users").setValue(name);
+
+                            String occupation = s.getSelectedItem().toString();
+                            database.child("users").child(name).child("Preferences").setValue(occupation);
+
                             Intent intent = new Intent(getApplicationContext(), Offer.class);
                             startActivity(intent);
                         } else {

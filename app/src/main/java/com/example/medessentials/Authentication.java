@@ -107,48 +107,6 @@ public class Authentication extends AppCompatActivity {
                         // ...
                     }
                 });
-        //Log.d(TAG, "email: " + email.getText().toString() + " password: " + password.getText().toString())
     }
 
-    /*public void handleLoginRegister(View view) {
-        List<AuthUI.IdpConfig> provider = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build()
-        );
-        Intent intent = AuthUI.getInstance().createSignInIntentBuilder()
-                .setAvailableProviders(provider)
-                .setTosAndPrivacyPolicyUrls("https://example.com", "https://example.com")
-                .setLogo(R.drawable.logo)
-                .build();
-
-        startActivityForResult(intent, AUTHUI_REQUEST_CODE);
-    }
-
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == AUTHUI_REQUEST_CODE) {
-            if(resultCode == RESULT_OK) {
-                FirebaseUser user  = FirebaseAuth.getInstance().getCurrentUser();
-                Log.d(TAG, "onActivityResult: " + user.getEmail());
-                if(user.getMetadata().getCreationTimestamp() == user.getMetadata().getLastSignInTimestamp()) {
-                    Toast.makeText(this, "Welcome new User", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    Toast.makeText(this, "Welcome back again", Toast.LENGTH_SHORT).show();
-                }
-
-                Intent intent = new Intent(this, Offer.class);
-                startActivity(intent);
-                this.finish();
-            }
-            else {
-                IdpResponse response = IdpResponse.fromResultIntent(data);
-                if(response == null) {
-                    Log.d(TAG, "onActivityResult: user has cancelled the sginin request");
-                }
-                else {
-                    Log.e(TAG, "onActivityResult: ", response.getError());
-                }
-            }
-        }
-    }*/
 }
