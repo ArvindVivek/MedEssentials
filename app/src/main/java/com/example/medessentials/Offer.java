@@ -16,6 +16,7 @@ import com.google.android.gms.tasks.Task;
 public class Offer extends AppCompatActivity {
 
     Button logout;
+    Button offer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,14 @@ public class Offer extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 logout();
+            }
+        });
+
+        offer = findViewById(R.id.offer);
+        offer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }

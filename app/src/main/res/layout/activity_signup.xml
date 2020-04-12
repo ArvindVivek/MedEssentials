@@ -96,6 +96,7 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/button_round"
         android:text = "@string/signup"
-        android:textColor="#ffffff"/>
+        android:textColor="#ffffff"
+        android:id = "@+id/fillout_signup"/>
 
 </LinearLayout>
