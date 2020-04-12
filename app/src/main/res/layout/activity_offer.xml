@@ -47,7 +47,7 @@
         android:textColorHint="#ffffff"
         android:background="@drawable/text_field"
         android:textColor="#ffffff"
-        app:layout_constraintTop_toBottomOf="@+id/title_off"
+        app:layout_constraintTop_toBottomOf="@id/title_off"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 
