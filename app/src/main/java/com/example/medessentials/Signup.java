@@ -42,8 +42,8 @@ public class Signup extends AppCompatActivity {
         signUp = findViewById(R.id.fillout_signup);
         firstName = findViewById(R.id.firstname_textbox);
         lastName = findViewById(R.id.lastname_textbox);
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
+        email = findViewById(R.id.email_textbox);
+        password = findViewById(R.id.password_textbox);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -82,6 +82,6 @@ public class Signup extends AppCompatActivity {
                         // ...
                     }
                 });
-
+            //Log.d(TAG, email.getText().toString());
     }
 }
