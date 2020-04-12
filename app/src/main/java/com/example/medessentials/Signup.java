@@ -1,64 +1,61 @@
 package com.example.medessentials;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.*;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.auth.IdpResponse;
+import android.os.Bundle;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.Arrays;
-import java.util.List;
+public class Signup extends AppCompatActivity {
 
-public class Authentication extends AppCompatActivity {
-
-
-    public static final String TAG = "Authentication";
-    //int AUTHUI_REQUEST_CODE = 10001;
     Button signUp;
-    Button login;
+    EditText firstName;
+    EditText lastName;
     EditText email;
     EditText password;
 
+    Spinner s;
+
     private FirebaseAuth mAuth;
+    private DatabaseReference database;
+
+    private static final String TAG = "Signup";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_authentication);
+        setContentView(R.layout.activity_signup);
+
+        String[] arraySpinner = new String[] {
+                "Individual Donor", "Manufacturer Donor", "Medical Professional (Recipient)"
+        };
+        s = (Spinner) findViewById(R.id.persontype_dropdown);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpinner);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        s.setAdapter(adapter);
+
+        signUp = findViewById(R.id.fillout_signup);
+        firstName = findViewById(R.id.firstname_textbox);
+        lastName = findViewById(R.id.lastname_textbox);
+        email = findViewById(R.id.email_textbox);
+        password = findViewById(R.id.password_textbox);
 
         mAuth = FirebaseAuth.getInstance();
-
-        email = findViewById(R.id.Username);
-        password = findViewById(R.id.Password);
-
-        signUp = findViewById(R.id.signup);
+        database = FirebaseDatabase.getInstance().getReference();
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), Signup.class);
-                startActivity(intent);
-            }
-        });
-
-        login = findViewById(R.id.login);
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signIn();
+                signup();
             }
         });
     }
@@ -68,40 +65,39 @@ public class Authentication extends AppCompatActivity {
         super.onStart();
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null) {
-            Intent intent = new Intent(getApplicationContext(), Offer.class);
-            startActivity(intent);
-        }
     }
 
-    private void signIn() {
-        mAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString())
+    private void signup() {
+        mAuth.createUserWithEmailAndPassword(email.getText().toString(), password.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithEmail:success");
+                            Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+
+                            String name = scrub(email.getText().toString());
+                            String occupation = s.getSelectedItem().toString();
+                            database.child("users").child(name).child("Preferences").setValue(occupation);
+
                             Intent intent = new Intent(getApplicationContext(), Offer.class);
                             intent.putExtra("Username", scrub(email.getText().toString()));
                             startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(getApplicationContext(), "Authentication failed.",
+                            Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                            Toast.makeText(Signup.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-                            // ...
                         }
-
                         // ...
                     }
                 });
+            //Log.d(TAG, email.getText().toString());
     }
 
     private String scrub(String str) {
         int loc = str.indexOf(".");
         return str.substring(0, loc) + str.substring(loc + 1);
     }
-
 }

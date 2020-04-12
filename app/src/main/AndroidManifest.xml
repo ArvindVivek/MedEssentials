@@ -13,9 +13,14 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".Placeholder">
+        </activity>
         <activity android:name=".Authentication">
         </activity>
         <activity android:name=".MapsHome">
+        <activity android:name=".Signup">
+        </activity>
+        <activity android:name=".Offer">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -30,6 +35,9 @@
         <meta-data
             android:name="com.google.android.gms.version"
              />
+        <meta-data
+                android:name="preloaded_fonts"
+                android:resource="@array/preloaded_fonts"/>
     </application>
 
 </manifest>
