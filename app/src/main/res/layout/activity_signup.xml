@@ -29,7 +29,6 @@
         android:importantForAutofill="no"
         android:textColorHint="#ffffff"
         android:background="@drawable/text_field"
-        android:paddingHorizontal="10dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -47,7 +46,6 @@
         android:inputType="text"
         android:importantForAutofill="no"
         android:background="@drawable/text_field"
-        android:paddingHorizontal="10dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -65,7 +63,6 @@
         android:importantForAutofill="no"
         android:textColorHint="#ffffff"
         android:background="@drawable/text_field"
-        android:paddingHorizontal="10dp"
         android:textColor="#ffffff"/>
 
     <EditText
@@ -83,7 +80,6 @@
         android:importantForAutofill="no"
         android:textColorHint="#ffffff"
         android:background="@drawable/text_field"
-        android:paddingHorizontal="10dp"
         android:textColor="#ffffff"/>
 
     <Spinner
