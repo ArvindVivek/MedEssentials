@@ -3,6 +3,7 @@ package com.example.medessentials;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
@@ -142,13 +143,28 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
                         String product = offer.get("productName");
                         String quantity = offer.get("quant");
                         String description = offer.get("descrip");
-                        String contact = offer.get("email");
+                        final String contact = offer.get("email");
 
                         double lat = Double.parseDouble(offer.get("latitude"));
                         double longi = Double.parseDouble(offer.get("longitude"));
 
                         String snipString = "Product: " + product + "\nQuantity: " + quantity + "\nDescription: " + description + "\nContact: " + contact;
                         Marker marker = map.addMarker(new MarkerOptions().title(name).snippet(snipString).position(new LatLng(lat, longi)));
+
+                        map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+                            @Override
+                            public void onInfoWindowClick(Marker marker) {
+                                Intent intent = new Intent(Intent.ACTION_SEND);
+                                String[] emails_in_to = {contact};
+                                intent.putExtra(Intent.EXTRA_EMAIL, emails_in_to);
+                                intent.putExtra(Intent.EXTRA_SUBJECT, "Request");
+                                intent.putExtra(Intent.EXTRA_TEXT, "I would like your stuff.");
+                                intent.setType("text/html");
+                                intent.setPackage("com.google.android.gm");
+                                //Intent intent = getPackageManager().getLaunchIntentForPackage("com.google.android.gm");
+                                startActivity(intent);
+                            }
+                        });
                     }
                 }
             }

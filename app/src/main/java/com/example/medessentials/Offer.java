@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import android.widget.EditText;
+import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -68,6 +69,7 @@ public class Offer extends AppCompatActivity {
         offer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Offer has been sent!!!", Toast.LENGTH_SHORT).show();
                 sendOffer();
             }
         });
@@ -93,6 +95,8 @@ public class Offer extends AppCompatActivity {
         String r = Integer.toString((int) (Math.random() * 10000));
 
         database.child("Offer").child(r).setValue(data);
+
+
         //database.child("users").child(user).child("Offer").setValue(data);
     }
 }

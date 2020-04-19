@@ -11,13 +11,13 @@
     <TextView android:layout_width="wrap_content"
               android:layout_height="wrap_content"
               android:id="@+id/login_title"
-              android:text="Login"
+              android:text="TitanHacks 2020: Login"
               android:textSize="36dp"
-              android:textStyle = "bold"
+              android:textStyle="bold"
               app:layout_constraintLeft_toLeftOf="parent"
               app:layout_constraintTop_toTopOf="parent"
               android:layout_marginLeft="16dp"
-              android:layout_marginTop ="16dp"
+              android:layout_marginTop="16dp"
               app:fontFamily="@font/abel"></TextView>
 
     <ImageView android:layout_width="200dp"
