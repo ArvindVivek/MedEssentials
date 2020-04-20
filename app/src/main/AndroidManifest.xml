@@ -2,9 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.example.medessentials">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
             android:allowBackup="true"
@@ -13,6 +13,10 @@
             android:roundIcon="@drawable/icon"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".ShowRequests">
+        </activity>
+        <activity android:name=".Request">
+        </activity>
         <activity android:name=".Placeholder">
         </activity>
         <activity android:name=".Authentication">
@@ -30,12 +34,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
         <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCJ0fCuay9ys1To0F-bzxXOk6v3DZOLGV8" />
-        <meta-data
-            android:name="com.google.android.gms.version"
-             />
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyCJ0fCuay9ys1To0F-bzxXOk6v3DZOLGV8"/>
+        <meta-data android:name="com.google.android.gms.version"/>
         <meta-data
                 android:name="preloaded_fonts"
                 android:resource="@array/preloaded_fonts"/>

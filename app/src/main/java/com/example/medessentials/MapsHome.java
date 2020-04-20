@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import android.widget.Button;
@@ -36,13 +37,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, OnMarkerClickListener {
+    public static final String TAG = "MapsHome";
+
     DatabaseReference myRef;
 
     private MapView mMapView;
     private Button logout;
-    //private Button request;
+    private Button request;
     private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
-
+    private String email;
 
 
     @Override
@@ -63,15 +66,18 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
             }
         });
 
-        /*request = findViewById(R.id.request);
+        Intent onCreateIntent = getIntent();
+        email = onCreateIntent.getStringExtra("Username");
+
+        request = findViewById(R.id.request_button);
         request.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), Request.class);
+                Intent intent = new Intent(getApplicationContext(), Request.class);
+                intent.putExtra("Email", email);
                 startActivity(intent);
             }
-        });*/
-
+        });
     }
 
     public void done(View view) {
@@ -135,12 +141,12 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
             @Override
             public void onDataChange(DataSnapshot MainSnapshot) {
                 for(DataSnapshot datasnapShot: MainSnapshot.getChildren()){
-                    for(DataSnapshot dataSnap2: datasnapShot.getChildren()){
-                        System.out.println(dataSnap2.getValue());
-                        HashMap<String, String> offer = (HashMap)dataSnap2.getValue();
+                        System.out.println(datasnapShot.getValue());
+                        HashMap<String, String> offer = (HashMap)datasnapShot.getValue();
 
                         String name = offer.get("companyName");
                         String product = offer.get("productName");
+                        String type = offer.get("type");
                         String quantity = offer.get("quant");
                         String description = offer.get("descrip");
                         final String contact = offer.get("email");
@@ -148,7 +154,9 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
                         double lat = Double.parseDouble(offer.get("latitude"));
                         double longi = Double.parseDouble(offer.get("longitude"));
 
-                        String snipString = "Product: " + product + "\nQuantity: " + quantity + "\nDescription: " + description + "\nContact: " + contact;
+                        Log.d(TAG, "Lat: " + lat + ", Long: " + longi);
+
+                        String snipString = "Product: " + product + "\nType: " + type + "\nQuantity: " + quantity + "\nDescription: " + description + "\nContact: " + contact;
                         Marker marker = map.addMarker(new MarkerOptions().title(name).snippet(snipString).position(new LatLng(lat, longi)));
 
                         map.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
@@ -156,18 +164,18 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
                             public void onInfoWindowClick(Marker marker) {
                                 Intent intent = new Intent(Intent.ACTION_SEND);
                                 String[] emails_in_to = {contact};
+                                intent.putExtra(Intent.EXTRA_REFERRER, "hello");
                                 intent.putExtra(Intent.EXTRA_EMAIL, emails_in_to);
                                 intent.putExtra(Intent.EXTRA_SUBJECT, "Request");
-                                intent.putExtra(Intent.EXTRA_TEXT, "I would like your stuff.");
+                                intent.putExtra(Intent.EXTRA_TEXT, "I would like your stuff.\n\n If you like to contact me any other way, please email " + email);
                                 intent.setType("text/html");
                                 intent.setPackage("com.google.android.gm");
-                                //Intent intent = getPackageManager().getLaunchIntentForPackage("com.google.android.gm");
                                 startActivity(intent);
                             }
                         });
                     }
                 }
-            }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {

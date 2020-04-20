@@ -2,8 +2,10 @@ package com.example.medessentials;
 
 public class offerData {
 
+    public String user;
     public String companyName;
     public String productName;
+    public String type;
     public String quant;
     public String descrip;
     public String email;
@@ -11,9 +13,11 @@ public class offerData {
     public String longitude;
 
 
-    public offerData(String companyName, String productName, String quant, String descrip, String email, String longitude, String latitude) {
+    public offerData(String user, String companyName, String productName, String type, String quant, String descrip, String email, String longitude, String latitude) {
+        this.user = user;
         this.companyName = companyName;
         this.productName = productName;
+        this.type = type;
         this.quant = quant;
         this.descrip = descrip;
         this.email = email;

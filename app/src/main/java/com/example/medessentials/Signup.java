@@ -87,12 +87,12 @@ public class Signup extends AppCompatActivity {
 
                             if(occupation.equals("Medical Professional (Recipient)")) {
                                 Intent intent = new Intent(getApplicationContext(), MapsHome.class);
-                                intent.putExtra("Username", scrub(email.getText().toString()));
+                                intent.putExtra("Username", email.getText().toString());
                                 startActivity(intent);
                             }
                             else {
                                 Intent intent = new Intent(getApplicationContext(), Offer.class);
-                                intent.putExtra("Username", scrub(email.getText().toString()));
+                                intent.putExtra("Username", email.getText().toString());
                                 startActivity(intent);
                             }
 

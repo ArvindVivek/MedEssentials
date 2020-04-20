@@ -142,14 +142,14 @@ public class Authentication extends AppCompatActivity {
                     if(name.equals(userName)) {
                         String occupation = user.get("preference");
                         Log.d(TAG, "User: " + user + " Preference:" + occupation);
-                        if(occupation.equals("Medical Professional (Recipient)")) {
+                        if(occupation.equals("Medical Professional") || occupation.equals("Other Recipient")) {
                             Intent intent = new Intent(getApplicationContext(), MapsHome.class);
-                            intent.putExtra("Username", scrub(email.getText().toString()));
+                            intent.putExtra("Username", email.getText().toString());
                             startActivity(intent);
                         }
                         else {
                             Intent intent = new Intent(getApplicationContext(), Offer.class);
-                            intent.putExtra("Username", scrub(email.getText().toString()));
+                            intent.putExtra("Username", email.getText().toString());
                             startActivity(intent);
                         }
                     }
