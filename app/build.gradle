@@ -35,4 +35,5 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-auth:6.2.0'
     implementation 'com.google.firebase:firebase-database:19.2.1'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
+
 }

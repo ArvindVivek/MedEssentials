@@ -7,4 +7,28 @@
         android:layout_height="match_parent"
         tools:context=".ShowRequests">
 
+    <TextView
+            android:id = "@+id/show_req_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "Requests"
+            android:fontFamily="@font/abel"
+            android:textSize="30dp"
+            android:textStyle = "bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop = "16dp"
+            android:layout_marginLeft="16dp"
+
+                />
+
+    <com.google.android.gms.maps.MapView
+            android:id = "@+id/show_req_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/show_req_title"
+            />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

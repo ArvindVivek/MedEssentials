@@ -187,8 +187,6 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
         map.setInfoWindowAdapter(markerInfoWindowAdapter);
         map.moveCamera(CameraUpdateFactory.newLatLng(new LatLng(latitudes.get(0), longitudes.get(0))));
 
-
-
         if(ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             return;
         }

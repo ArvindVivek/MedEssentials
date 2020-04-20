@@ -34,6 +34,7 @@ public class Offer extends AppCompatActivity {
 
     Button logout;
     Button offer;
+    Button show_request;
 
     String user;
 
@@ -80,6 +81,15 @@ public class Offer extends AppCompatActivity {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "Offer has been sent!!!", Toast.LENGTH_SHORT).show();
                 sendOffer();
+            }
+        });
+
+        show_request = findViewById(R.id.show_request_button);
+        show_request.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ShowRequests.class);
+                startActivity(intent);
             }
         });
     }
