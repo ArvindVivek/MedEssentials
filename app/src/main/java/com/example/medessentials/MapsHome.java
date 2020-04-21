@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 
 import android.widget.Button;
+import android.widget.EditText;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -27,11 +28,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseError;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -46,6 +43,9 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
     private Button request;
     private static final String MAPVIEW_BUNDLE_KEY = "MapViewBundleKey";
     private String email;
+
+    private EditText searchField;
+    private Button searchButton;
 
 
     @Override
@@ -76,6 +76,15 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
                 Intent intent = new Intent(getApplicationContext(), Request.class);
                 intent.putExtra("Email", email);
                 startActivity(intent);
+            }
+        });
+
+        searchField = findViewById(R.id.donor_search_edit_text);
+        searchButton = findViewById(R.id.donor_search_button);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                firebaseSearch(searchField.getText().toString());
             }
         });
     }
@@ -224,5 +233,9 @@ public class MapsHome extends AppCompatActivity implements OnMapReadyCallback, O
                         startActivity(intent);
                     }
                 });
+    }
+
+    private void firebaseSearch(String searchText) {
+        Query firebaseSearchQuery = myRef.orderByChild("productName").startAt(searchText).endAt(searchText + "\uf8ff");
     }
 }
